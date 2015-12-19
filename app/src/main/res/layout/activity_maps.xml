@@ -1,0 +1,170 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1">
+
+        <!--Google Map View-->
+        <fragment
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/map" tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+        <!--Spinner for choosing data sets to be displayed-->
+        <Spinner
+            android:id="@+id/spinner_map_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
+
+        <!--Top right legend display-->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:rowCount="5"
+            android:columnCount="2"
+            android:background="#ccffffff">
+
+            <TextView
+                android:text="Legend:"
+                android:id="@+id/legend_textview0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:text="AA"
+                android:textColor="#00000000"
+                android:background="#00ff00"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:text="AA"
+                android:textColor="#00000000"
+                android:background="#ffff00" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:text="AA"
+                android:textColor="#00000000"
+                android:background="#ff0000" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="4"
+                android:layout_column="0"
+                android:text="AA"
+                android:textColor="#00000000"
+                android:background="#888888" />
+
+            <TextView
+                android:id="@+id/legend_textview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:text="100%"/>
+            <TextView
+                android:id="@+id/legend_textview2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:text="50%"/>
+            <TextView
+                android:id="@+id/legend_textview3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:text="0%"/>
+            <TextView
+                android:id="@+id/legend_textview4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:text="No data"/>
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/text_view_date_display"
+            android:text="Loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_map_data"
+            android:layout_centerHorizontal="true" />
+
+        <!--Bottom date slider and play button-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <nightcrysis.project_walk.Frontend.DateSeekBar
+                android:id="@+id/seek_bar_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:thumb="@drawable/seekbar_thumb"
+                android:progressDrawable="@drawable/seekbar_progress"
+                />
+
+            <!--
+                For the above
+                android:progressDrawable="@drawable/seekbar_progress"
+                android:thumb="@drawable/seekbar_thumb"
+            -->
+
+            <Button
+                android:id="@+id/button_play_button"
+                android:onClick="playSeekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/loading_bar_container"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--Placeholder View-->
+    <fragment
+        android:id="@+id/fragment_right_panel"
+        android:name="nightcrysis.project_walk.Infographic"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:layout_width="0dp"
+        android:layout_weight="1"/>
+
+    </LinearLayout>

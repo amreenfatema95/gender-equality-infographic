@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111120">
+
+    <!-- Group 1: Country name and population -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/country_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="World: Loading..."/>
+            <TextView
+                android:id="@+id/country_population"
+                android:layout_below="@id/country_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Population: Loading..."/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/employment_piechart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/employment_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Loading..."
+                android:textColor="#ffffff"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Group 2: Literacy rate -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/literacyRate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Literacy rate"
+            android:textColor="#ffffff"/>
+
+        <TableLayout
+            android:layout_below="@+id/literacyRate_title"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <nightcrysis.project_walk.Frontend.BookView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:id="@+id/maleLiteracyRate"/>
+
+                    <TextView
+                        android:text="Male: Loading..."
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/maleLiteracyLabel"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <nightcrysis.project_walk.Frontend.BookView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:id="@+id/femaleLiteracyRate"/>
+
+                    <TextView
+                        android:text="Female: Loading..."
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/femaleLiteracyLabel"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+
+    <!-- Group 3: Gender parity index for primary, secondary and tertiary education -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/gip_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/gip_title"
+                android:text="Per female student there are:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"/>
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gip_title_wrapper"
+            android:stretchColumns="*">
+
+            <!-- Top texts -->
+            <TableRow>
+                <RelativeLayout>
+                    <TextView
+                        android:text="N/A"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_primary_label"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+
+                <RelativeLayout>
+                    <TextView
+                        android:text="N/A"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_secondary_label"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+
+                <RelativeLayout>
+                    <TextView
+                        android:text="N/A"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_tertiary_label"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+            </TableRow>
+
+            <!-- Middle PersonViews -->
+            <TableRow>
+                <RelativeLayout>
+                    <nightcrysis.project_walk.Frontend.PersonView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_primary_display"
+                        android:layout_centerHorizontal="true"/>/>
+                </RelativeLayout>
+
+                <RelativeLayout>
+                    <nightcrysis.project_walk.Frontend.PersonView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_secondary_display"
+                        android:layout_centerHorizontal="true"/>/>
+                </RelativeLayout>
+
+                <RelativeLayout>
+                    <nightcrysis.project_walk.Frontend.PersonView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_tertiary_display"
+                        android:layout_centerHorizontal="true"/>/>
+                </RelativeLayout>
+            </TableRow>
+
+            <!-- Bottom texts -->
+            <TableRow>
+                <RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_primary_education"
+                        android:layout_centerHorizontal="true"
+                        android:text="Primary\neducation"
+                        android:gravity="center_horizontal"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+                <RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_secondary_education"
+                        android:layout_centerHorizontal="true"
+                        android:text="Secondary\neducation"
+                        android:gravity="center_horizontal"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+                <RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gip_tertiary_education"
+                        android:layout_centerHorizontal="true"
+                        android:text="Tertiary\neducation"
+                        android:gravity="center_horizontal"
+                        android:textColor="#ffffff"/>
+                </RelativeLayout>
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+
+    <!-- Group 4: Persistence from grade 1 to grade 5 for both genders -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/persistence_text_view"
+            android:text="Line 1\nLine 2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+
+    <!-- Group 5: Women's parliament participation -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Loading...\n\n"
+                android:textColor="#ffffff"
+                android:id="@+id/parliament_label"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <nightcrysis.project_walk.Frontend.ParliamentView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/parliament_display"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
